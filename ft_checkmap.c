@@ -57,13 +57,17 @@ int	ft_checkmapclosed(char *map, int size)
 {
 	int		fd;
 	char	*line1;
-	char	*check;
 	int		len;
+	int		i;
 
+	i = 0;
 	fd = open(map, O_RDONLY);
 	line1 = get_next_line(fd);
 	len = ft_strlen(line1);
-	
+	while (str != NULL && i < size)
+	{
+		if ()
+	}
 }
 
 
