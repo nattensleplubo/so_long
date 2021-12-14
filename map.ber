@@ -6,3 +6,18 @@
 1C01000101
 10E001C001
 1111111111
+
+0 = EMPTY
+1 = WALL
+C = COLLECTIBLE
+E = EXIT
+P = PLAYER STARTING POSITION
+
+Check si elle est carre 
+Check si elle est entouree de 1
+
+Check si ya un P, C (AT LEAST ONE), EMPTY
+
+Pas besoin de check si ya un valid path
+
+Check aussi si ya pas de .ber a la fin de la map
