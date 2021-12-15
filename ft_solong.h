@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 16:26:01 by ngobert           #+#    #+#             */
-/*   Updated: 2021/12/14 13:38:23 by ngobert          ###   ########.fr       */
+/*   Updated: 2021/12/14 16:33:59 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,7 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <limits.h>
+
+char	*get_next_line(int fd);
 
 #endif

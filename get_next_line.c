@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:39:23 by ngobert           #+#    #+#             */
-/*   Updated: 2021/12/02 13:10:22 by ngobert          ###   ########.fr       */
+/*   Updated: 2021/12/14 16:32:22 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ char	*ft_new_static(char *statique)
 char	*get_next_line(int fd)
 {
 	char		*buffer;
-	static char	*statique[OPEN_MAX];
+	static char	*statique[FOPEN_MAX];
 	char		*line;
 	int			ret_val;
 
