@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 10:15:16 by ngobert           #+#    #+#             */
-/*   Updated: 2021/12/15 16:27:59 by ngobert          ###   ########.fr       */
+/*   Updated: 2021/12/15 21:08:39 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	ft_checkber(char *map)
 	i = 0;
 	while (map[i])
 		i++;
-	if (map[i - 1] == 'r' && map[i - 2] == 'e' && map[i - 3] == 'b' && map[i - 4] == '.')
+	if (map[i - 1] == 'r' && map[i - 2] == 'e' && map[i - 3] == 'b'
+		&& map[i - 4] == '.')
 		return (1);
 	else
 		return (-1);
@@ -130,18 +131,111 @@ int	ft_checkclose(char *map, int len)
 	return (1);
 }
 
+/* ************************************** Check no forbidden chars ************************************ */
+
+/* ************************************** Has C E P ************************************ */
+
+int	has_p(char *map, int len)
+{
+	int		i;
+	int		fd;
+	char	*line;
+	int		p;
+	int		j;
+
+	i = 0;
+	j = 0;
+	p = 0;
+	fd = open(map, O_RDONLY);
+	while (i < len)
+	{
+		line = get_next_line(fd);
+		while (line[j])
+		{
+			if (line[j] == 'P')
+				p++;
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+	if (p != 1)
+		return (-1);
+	return (1);
+}
+
+int	has_e(char *map, int len)
+{
+	int		i;
+	int		fd;
+	char	*line;
+	int		e;
+	int		j;
+
+	i = 0;
+	j = 0;
+	e = 0;
+	fd = open(map, O_RDONLY);
+	while (i < len)
+	{
+		line = get_next_line(fd);
+		while (line[j])
+		{
+			if (line[j] == 'E')
+				e++;
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+	if (e != 1)
+		return (-1);
+	return (1);
+}
+
+int	howmuch_c(char *map, int len)
+{
+	int		i;
+	int		fd;
+	char	*line;
+	int		c;
+	int		j;
+
+	i = 0;
+	j = 0;
+	c = 0;
+	fd = open(map, O_RDONLY);
+	while (i < len)
+	{
+		line = get_next_line(fd);
+		while (line[j])
+		{
+			if (line[j] == 'C')
+				c++;
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+	if (c == 0)
+		return (-1);
+	return (c);
+}
+
 /* ************************************* Main ************************************* */
 
 int	main(void)
 {
 	int maplen = ft_maplen("test.ber");
-	int fd = open("test.ber", O_RDONLY);
-	printf("Map length : %d\n", maplen);
-	printf("First line length : %d\n", ft_linelen(get_next_line(fd)));
+	// int fd = open("test.ber", O_RDONLY);
+	// printf("Map length : %d\n", maplen);
+	// printf("First line length : %d\n", ft_linelen(get_next_line(fd)));
 
-	printf("Is map square? : %d %d\n", ft_checksq("test.ber", maplen), maplen);
+	// printf("Is map square? : %d %d\n", ft_checksq("test.ber", maplen), maplen);
 	
-	printf("Is map closed? : %d\n", ft_checkclose("test.ber", maplen));
+	// printf("Is map closed? : %d\n", ft_checkclose("test.ber", maplen));
 
-	printf(".ber : %d\n", ft_checkber("test.ber"));
+	// printf(".ber : %d\n", ft_checkber("test.ber"));
+	printf("P : %d\n", has_p("test.ber", maplen));
+	printf("E : %d\n", has_e("test.ber", maplen));
 }
