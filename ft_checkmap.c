@@ -6,13 +6,28 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 10:15:16 by ngobert           #+#    #+#             */
-/*   Updated: 2021/12/15 13:14:25 by ngobert          ###   ########.fr       */
+/*   Updated: 2021/12/15 16:27:59 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_solong.h"
 
 /* ************************************** Check .ber ************************************ */
+
+int	ft_checkber(char *map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i])
+		i++;
+	if (map[i - 1] == 'r' && map[i - 2] == 'e' && map[i - 3] == 'b' && map[i - 4] == '.')
+		return (1);
+	else
+		return (-1);
+}
+
+// i - 1 is r
 
 /* ******************************** Map Length ****************************************** */
 
@@ -127,4 +142,6 @@ int	main(void)
 	printf("Is map square? : %d %d\n", ft_checksq("test.ber", maplen), maplen);
 	
 	printf("Is map closed? : %d\n", ft_checkclose("test.ber", maplen));
+
+	printf(".ber : %d\n", ft_checkber("test.ber"));
 }

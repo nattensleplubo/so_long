@@ -20,7 +20,7 @@ Check si ya un P, C (AT LEAST ONE), EMPTY
 
 Pas besoin de check si ya un valid path
 
-Check aussi si ya pas de .ber a la fin de la map
+Check aussi si ya pas de .ber a la fin de la map et que cest pas un dossier
 11111111
 1P1C0001
 10100001
