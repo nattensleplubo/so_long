@@ -6,13 +6,11 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 10:15:16 by ngobert           #+#    #+#             */
-/*   Updated: 2021/12/15 21:08:39 by ngobert          ###   ########.fr       */
+/*   Updated: 2021/12/16 17:42:51 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_solong.h"
-
-/* ************************************** Check .ber ************************************ */
 
 int	ft_checkber(char *map)
 {
@@ -28,10 +26,6 @@ int	ft_checkber(char *map)
 		return (-1);
 }
 
-// i - 1 is r
-
-/* ******************************** Map Length ****************************************** */
-
 int	ft_maplen(char *map)
 {
 	int		fd;
@@ -44,12 +38,10 @@ int	ft_maplen(char *map)
 	return (i);
 }
 
-/* ************************************ Check Square************************************** */
-
 int	ft_linelen(char *str)
 {
 	int	i;
-	
+
 	i = 0;
 	if (!str)
 		return (0);
@@ -81,14 +73,11 @@ int	ft_checksq(char *map, int len)
 	return (i);
 }
 
-/* ************************************** Check Closed ************************************ */
-
 int	ft_checkclosefirstline(char *str, int len)
 {
 	int	i;
-	
-	i = 0;
 
+	i = 0;
 	while (i < len)
 	{
 		if (str[i] != '1')
@@ -121,7 +110,6 @@ int	ft_checkclose(char *map, int len)
 	while (i < len)
 	{
 		line = get_next_line(fd);
-		
 		if (ft_checkinclose(line, ft_linelen(line)) < 0)
 			return (-1);
 		i++;
@@ -131,9 +119,31 @@ int	ft_checkclose(char *map, int len)
 	return (1);
 }
 
-/* ************************************** Check no forbidden chars ************************************ */
+int	ft_checkforbid(char *map, int len)
+{
+	int		i;
+	char	*line;
+	int		fd;
+	int		j;
 
-/* ************************************** Has C E P ************************************ */
+	i = 0;
+	j = 0;
+	fd = open(map, O_RDONLY);
+	while (i < len)
+	{
+		line = get_next_line(fd);
+		while (line[j])
+		{
+			if (line[j] != '1' && line[j] != '0' && line[j] != 'E'
+				&& line[j] != 'P' && line[j] != 'C' && line[j] != '\n')
+				return (-1);
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+	return (1);
+}
 
 int	has_p(char *map, int len)
 {
@@ -222,20 +232,12 @@ int	howmuch_c(char *map, int len)
 	return (c);
 }
 
-/* ************************************* Main ************************************* */
-
-int	main(void)
+int	ft_mapcheck(char *map, int len)
 {
-	int maplen = ft_maplen("test.ber");
-	// int fd = open("test.ber", O_RDONLY);
-	// printf("Map length : %d\n", maplen);
-	// printf("First line length : %d\n", ft_linelen(get_next_line(fd)));
-
-	// printf("Is map square? : %d %d\n", ft_checksq("test.ber", maplen), maplen);
-	
-	// printf("Is map closed? : %d\n", ft_checkclose("test.ber", maplen));
-
-	// printf(".ber : %d\n", ft_checkber("test.ber"));
-	printf("P : %d\n", has_p("test.ber", maplen));
-	printf("E : %d\n", has_e("test.ber", maplen));
+	if (ft_checkber(map) == -1 || ft_checksq(map, len) == -1
+		|| ft_checkclose(map, len) == -1 || ft_checkforbid(map, len) == -1
+		|| has_e(map, len) == -1 || has_p(map, len) == -1
+		|| howmuch_c(map, len) == -1)
+		return (-1);
+	return (1);
 }

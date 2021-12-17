@@ -29,3 +29,38 @@ Check aussi si ya pas de .ber a la fin de la map et que cest pas un dossier
 10000101
 1000C1E1
 11111111
+
+On check si :
+Cest carre
+Cest entoure de 1
+Ya bien un P E et cb de c
+Si ya le .ber
+
+-----------------------------
+
+Faire la fonction qui fait tout le checking
+
+ft_checkber
+ft_checksq
+ft_checkclose
+ft_checkforbid
+
+int	main(void)
+{
+	int maplen = ft_maplen("test.ber");
+	int fd = open("test.ber", O_RDONLY);
+	printf("Map length : %d\n", maplen);
+	printf("First line length : %d\n", ft_linelen(get_next_line(fd)));
+
+	printf("Is map square? : %d %d\n", ft_checksq("test.ber", maplen), maplen);
+	
+	printf("Is map closed? : %d\n", ft_checkclose("test.ber", maplen));
+
+	printf(".ber : %d\n", ft_checkber("test.ber"));
+	printf("P : %d\n", has_p("test.ber", maplen));
+	printf("E : %d\n", has_e("test.ber", maplen));
+	printf("C : %d\n", howmuch_c("test.ber", maplen));
+	printf("Is there forbidden char ? : %d\n", ft_checkforbid("test.ber", maplen));
+
+	printf("Is map valid ? : %d\n", ft_mapcheck("test.ber", maplen));
+}
