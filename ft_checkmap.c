@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 10:15:16 by ngobert           #+#    #+#             */
-/*   Updated: 2021/12/16 17:42:51 by ngobert          ###   ########.fr       */
+/*   Updated: 2021/12/17 11:38:24 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -238,6 +238,29 @@ int	ft_mapcheck(char *map, int len)
 		|| ft_checkclose(map, len) == -1 || ft_checkforbid(map, len) == -1
 		|| has_e(map, len) == -1 || has_p(map, len) == -1
 		|| howmuch_c(map, len) == -1)
-		return (-1);
+		{
+			printf("Sorry, map is not valid. Try another map.\n");
+			return (-1);
+		}
 	return (1);
+}
+
+int	main(void)
+{
+	int maplen = ft_maplen("test.ber");
+	int fd = open("test.ber", O_RDONLY);
+	printf("Map length : %d\n", maplen);
+	printf("First line length : %d\n", ft_linelen(get_next_line(fd)));
+
+	printf("Is map square? : %d %d\n", ft_checksq("test.ber", maplen), maplen);
+	
+	printf("Is map closed? : %d\n", ft_checkclose("test.ber", maplen));
+
+	printf(".ber : %d\n", ft_checkber("test.ber"));
+	printf("P : %d\n", has_p("test.ber", maplen));
+	printf("E : %d\n", has_e("test.ber", maplen));
+	printf("C : %d\n", howmuch_c("test.ber", maplen));
+	printf("Is there forbidden char ? : %d\n", ft_checkforbid("test.ber", maplen));
+
+	printf("Is map valid ? : %d\n", ft_mapcheck("test.ber", maplen));
 }
