@@ -6,7 +6,15 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 13:27:01 by ngobert           #+#    #+#             */
-/*   Updated: 2021/12/20 13:27:02 by ngobert          ###   ########.fr       */
+/*   Updated: 2021/12/22 10:09:22 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_solong.h"
+
+int	ft_width(char *width)
+{
+	int	i;
+
+	
+}

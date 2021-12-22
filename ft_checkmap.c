@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 10:15:16 by ngobert           #+#    #+#             */
-/*   Updated: 2021/12/17 11:38:24 by ngobert          ###   ########.fr       */
+/*   Updated: 2021/12/22 10:37:01 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,6 +145,13 @@ int	ft_checkforbid(char *map, int len)
 	return (1);
 }
 
+/* ********* Check les P E C ********** */
+
+int	ft_checklinefor(char *map, char c)
+{
+	int	i;
+}
+
 int	has_p(char *map, int len)
 {
 	int		i;
@@ -172,7 +179,7 @@ int	has_p(char *map, int len)
 	if (p != 1)
 		return (-1);
 	return (1);
-}
+} // FAIRE DES FONCTIONS CHECK LINE FOR UN CERTAIN CHAR COMME CA APRES ON PEUT FREE LES LINES DE GNL
 
 int	has_e(char *map, int len)
 {
