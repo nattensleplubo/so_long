@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 10:15:16 by ngobert           #+#    #+#             */
-/*   Updated: 2021/12/22 10:37:01 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/01 18:45:50 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,21 @@ int	ft_checksq(char *map, int len)
 	int		i;
 	int		first_len;
 	int		li;
+	char	*line;
 
 	fd = open(map, O_RDONLY);
 	i = 1;
-	first_len = ft_linelen(get_next_line(fd));
+	line = get_next_line(fd);
+	first_len = ft_linelen(line);
+	free(line);
 	while (i < len)
 	{
-		li = ft_linelen(get_next_line(fd));
+		line = get_next_line(fd);
+		li = ft_linelen(line);
 		if (li != first_len)
-			return (-1);
+			return (free(line), -1);
 		i++;
+		free(line);
 	}
 	return (i);
 }
@@ -105,18 +110,20 @@ int	ft_checkclose(char *map, int len)
 	i = 1;
 	line = get_next_line(fd);
 	if (ft_checkclosefirstline(line, ft_linelen(line)) < 0)
-		return (-1);
+		return (free(line), -1);
 	free(line);
-	while (i < len)
+	while (i < len - 1)
 	{
 		line = get_next_line(fd);
 		if (ft_checkinclose(line, ft_linelen(line)) < 0)
 			return (-1);
 		i++;
+		free(line);
 	}
+	line = get_next_line(fd);
 	if (ft_checkclosefirstline(line, ft_linelen(line)) < 0)
-		return (-1);
-	return (1);
+		return (free(line), -1);
+	return (free(line), 1);
 }
 
 int	ft_checkforbid(char *map, int len)
@@ -141,102 +148,79 @@ int	ft_checkforbid(char *map, int len)
 		}
 		j = 0;
 		i++;
+		free(line);
 	}
 	return (1);
 }
 
 /* ********* Check les P E C ********** */
 
-int	ft_checklinefor(char *map, char c)
+int    has_p(char *map, int len)
 {
-	int	i;
+    int        i;
+    int        fd;
+    char    *line;
+    int        p;
+    int        j;
+
+    i = 0;
+    j = 0;
+    p = 0;
+    fd = open(map, O_RDONLY);
+    while (i < len)
+    {
+        line = get_next_line(fd);
+        while (line[j])
+            p += (line[j++] == 'P');
+        j = (free(line), i++, 0);
+    }
+    return (1 - 2 * (p != 1));
 }
 
-int	has_p(char *map, int len)
+int    has_e(char *map, int len)
 {
-	int		i;
-	int		fd;
-	char	*line;
-	int		p;
-	int		j;
+    int        i;
+    int        fd;
+    char    *line;
+    int        e;
+    int        j;
 
-	i = 0;
-	j = 0;
-	p = 0;
-	fd = open(map, O_RDONLY);
-	while (i < len)
-	{
-		line = get_next_line(fd);
-		while (line[j])
-		{
-			if (line[j] == 'P')
-				p++;
-			j++;
-		}
-		j = 0;
-		i++;
-	}
-	if (p != 1)
-		return (-1);
-	return (1);
-} // FAIRE DES FONCTIONS CHECK LINE FOR UN CERTAIN CHAR COMME CA APRES ON PEUT FREE LES LINES DE GNL
-
-int	has_e(char *map, int len)
-{
-	int		i;
-	int		fd;
-	char	*line;
-	int		e;
-	int		j;
-
-	i = 0;
-	j = 0;
-	e = 0;
-	fd = open(map, O_RDONLY);
-	while (i < len)
-	{
-		line = get_next_line(fd);
-		while (line[j])
-		{
-			if (line[j] == 'E')
-				e++;
-			j++;
-		}
-		j = 0;
-		i++;
-	}
-	if (e != 1)
-		return (-1);
-	return (1);
+    i = 0;
+    j = 0;
+    e = 0;
+    fd = open(map, O_RDONLY);
+    while (i < len)
+    {
+        line = get_next_line(fd);
+        while (line[j])
+            e += (line[j++] == 'E');
+        j = (free(line), i++, 0);
+    }
+    return (1 - 2 * (e != 1));
 }
 
-int	howmuch_c(char *map, int len)
+int    howmuch_c(char *map, int len)
 {
-	int		i;
-	int		fd;
-	char	*line;
-	int		c;
-	int		j;
+    int        i;
+    int        fd;
+    char    *line;
+    int        c;
+    int        j;
 
-	i = 0;
-	j = 0;
-	c = 0;
-	fd = open(map, O_RDONLY);
-	while (i < len)
-	{
-		line = get_next_line(fd);
-		while (line[j])
-		{
-			if (line[j] == 'C')
-				c++;
-			j++;
-		}
-		j = 0;
-		i++;
+    i = 0;
+    j = 0;
+    c = 0;
+    fd = open(map, O_RDONLY);
+    while (i < len)
+    {
+        line = get_next_line(fd);
+        while (line[j])
+            c += (line[j++] == 'C');
+        j = (free(line), i++, 0);
 	}
-	if (c == 0)
-		return (-1);
-	return (c);
+    if (c == 0)
+        return (-1);
+    return (c);
 }
 
 int	ft_mapcheck(char *map, int len)
@@ -252,22 +236,27 @@ int	ft_mapcheck(char *map, int len)
 	return (1);
 }
 
+// int	main(void)
+// {
+// 	int maplen = ft_maplen("test.ber");
+// 	int fd = open("test.ber", O_RDONLY);
+// 	printf("Map length : %d\n", maplen);
+// 	printf("First line length : %d\n", ft_linelen(get_next_line(fd)));
+
+// 	printf("Is map square? : %d %d\n", ft_checksq("test.ber", maplen), maplen);
+	
+// 	printf("Is map closed? : %d\n", ft_checkclose("test.ber", maplen));
+
+// 	printf(".ber : %d\n", ft_checkber("test.ber"));
+// 	printf("P : %d\n", has_p("test.ber", maplen));
+// 	printf("E : %d\n", has_e("test.ber", maplen));
+// 	printf("C : %d\n", howmuch_c("test.ber", maplen));
+// 	printf("Is there forbidden char ? : %d\n", ft_checkforbid("test.ber", maplen));
+
+// 	printf("Is map valid ? : %d\n", ft_mapcheck("test.ber", maplen));
+// }
+
 int	main(void)
 {
-	int maplen = ft_maplen("test.ber");
-	int fd = open("test.ber", O_RDONLY);
-	printf("Map length : %d\n", maplen);
-	printf("First line length : %d\n", ft_linelen(get_next_line(fd)));
-
-	printf("Is map square? : %d %d\n", ft_checksq("test.ber", maplen), maplen);
-	
-	printf("Is map closed? : %d\n", ft_checkclose("test.ber", maplen));
-
-	printf(".ber : %d\n", ft_checkber("test.ber"));
-	printf("P : %d\n", has_p("test.ber", maplen));
-	printf("E : %d\n", has_e("test.ber", maplen));
-	printf("C : %d\n", howmuch_c("test.ber", maplen));
-	printf("Is there forbidden char ? : %d\n", ft_checkforbid("test.ber", maplen));
-
-	printf("Is map valid ? : %d\n", ft_mapcheck("test.ber", maplen));
+	ft_maplen("test.ber");
 }
