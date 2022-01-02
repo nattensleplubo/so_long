@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 10:15:16 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/02 20:15:02 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/02 23:13:57 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	free_gnl(char *line, int fd)
 {
 	while (line != NULL)
 		line = (free(line), get_next_line(fd));
+	close(fd);
 }
 
 int	ft_checkber(char *map)
@@ -90,7 +91,7 @@ int	ft_checksq(char *map, int len)
 		i++;
 		free(line);
 	}
-	return (get_next_line(fd), i);
+	return (get_next_line(fd), close(fd), i);
 }
 
 int	ft_checkclosefirstline(char *str, int len)
@@ -138,7 +139,7 @@ int	ft_checkclose(char *map, int len)
 	line = get_next_line(fd);
 	if (ft_checkclosefirstline(line, ft_linelen(line)) < 0)
 		return (get_next_line(fd), free(line), -1);
-	return (get_next_line(fd), free(line), 1);
+	return (get_next_line(fd), free(line), close(fd), 1);
 }
 
 int	ft_checkforbid(char *map, int len)
@@ -165,7 +166,7 @@ int	ft_checkforbid(char *map, int len)
 		i++;
 		free(line);
 	}
-	return (get_next_line(fd), 1);
+	return (get_next_line(fd), close(fd), 1);
 }
 
 /* ********* Check les P E C ********** */
@@ -189,7 +190,7 @@ int    has_p(char *map, int len)
             p += (line[j++] == 'P');
         j = (free(line), i++, 0);
     }
-    return (get_next_line(fd), 1 - 2 * (p != 1));
+    return (get_next_line(fd), close(fd), 1 - 2 * (p != 1));
 }
 
 int    has_e(char *map, int len)
@@ -211,7 +212,7 @@ int    has_e(char *map, int len)
             e += (line[j++] == 'E');
         j = (free(line), i++, 0);
     }
-    return (get_next_line(fd), 1 - 2 * (e != 1));
+    return (get_next_line(fd), close(fd), 1 - 2 * (e != 1));
 }
 
 int    howmuch_c(char *map, int len)
@@ -235,7 +236,7 @@ int    howmuch_c(char *map, int len)
 	}
     if (c == 0)
         return (get_next_line(fd), -1);
-    return (get_next_line(fd), c);
+    return (get_next_line(fd), close(fd), c);
 }
 
 int	ft_mapcheck(char *map, int len)
@@ -271,8 +272,8 @@ int	ft_mapcheck(char *map, int len)
 // 	printf("Is map valid ? : %d\n", ft_mapcheck("test.ber", maplen));
 // }
 
-int	main(void)
-{
-	printf("%d\n", ft_mapcheck("test.ber", ft_maplen("test.ber")));
-	//ft_checksq("test.ber", ft_maplen("test.ber"));
-}
+// int	main(void)
+// {
+// 	printf("%d\n", ft_mapcheck("test.ber", ft_maplen("test.ber")));
+// 	//ft_checksq("test.ber", ft_maplen("test.ber"));
+// }

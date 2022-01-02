@@ -6,14 +6,14 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 11:28:51 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/02 00:41:51 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/02 23:13:32 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
 #include "ft_solong.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	void	*mlx;
 	void	*img;
@@ -23,8 +23,9 @@ int	main(void)
 	void	*mlx_win;
 	int		i = 0;
 	int		j = 0;
-	int		fd = open("test.ber", O_RDONLY);
-	int		length = ft_maplen("test.ber") * 32;
+	(void)argc;
+	int		fd = open(argv[1], O_RDONLY);
+	int		length = ft_maplen(argv[1]) * 32;
 	int		width = ft_linelen(get_next_line(fd)) * 32;
 
 	mlx = mlx_init();
