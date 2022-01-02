@@ -6,11 +6,17 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 10:15:16 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/01 22:16:46 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/02 20:15:02 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_solong.h"
+
+void	free_gnl(char *line, int fd)
+{
+	while (line != NULL)
+		line = (free(line), get_next_line(fd));
+}
 
 int	ft_checkber(char *map)
 {
@@ -78,7 +84,9 @@ int	ft_checksq(char *map, int len)
 		line = get_next_line(fd);
 		li = ft_linelen(line);
 		if (li != first_len)
-			return (free(line), -1);
+		{
+			return (free_gnl(line, fd), -1);
+		}
 		i++;
 		free(line);
 	}
@@ -117,13 +125,13 @@ int	ft_checkclose(char *map, int len)
 	i = 1;
 	line = get_next_line(fd);
 	if (ft_checkclosefirstline(line, ft_linelen(line)) < 0)
-		return (free(line), -1);
+		return (free_gnl(line, fd), -1);
 	free(line);
 	while (i < len - 1)
 	{
 		line = get_next_line(fd);
 		if (ft_checkinclose(line, ft_linelen(line)) < 0)
-			return (-1);
+			return (free_gnl(line, fd), -1);
 		i++;
 		free(line);
 	}
@@ -150,7 +158,7 @@ int	ft_checkforbid(char *map, int len)
 		{
 			if (line[j] != '1' && line[j] != '0' && line[j] != 'E'
 				&& line[j] != 'P' && line[j] != 'C' && line[j] != '\n')
-				return (free(line), -1);
+				return (free_gnl(line, fd), -1);
 			j++;
 		}
 		j = 0;
@@ -266,4 +274,5 @@ int	ft_mapcheck(char *map, int len)
 int	main(void)
 {
 	printf("%d\n", ft_mapcheck("test.ber", ft_maplen("test.ber")));
+	//ft_checksq("test.ber", ft_maplen("test.ber"));
 }
