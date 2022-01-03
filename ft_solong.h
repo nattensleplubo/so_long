@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 16:26:01 by ngobert           #+#    #+#             */
-/*   Updated: 2021/12/20 13:29:01 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/02 23:42:55 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <limits.h>
+
+# define EMPTY "./assets/sprites/empty.xpm"
+# define WALL "./assets/sprites/wall.xpm"
+# define COIN "./assets/sprites/coin.xpm"
+# define EXIT "./assets/sprites/exit.xpm"
+# define PLAYER "./assets/sprites/player.xpm"
 
 char	*get_next_line(int fd);
 int		ft_mapcheck(char *map, int len);
