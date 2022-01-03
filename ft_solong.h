@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 16:26:01 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/03 12:48:21 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/03 16:14:06 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@
 
 typedef enum e_bool {TRUE = 1, FALSE = 0}	t_bool;
 
-typedef	struct	s_vars
+typedef struct s_vars
 {
 	void	*mlx;
 	void	*win;
 }	t_vars;
 
-typedef struct	s_map
+typedef struct s_map
 {
 	char	**map;
 	int		fd;
@@ -43,20 +43,20 @@ typedef struct	s_map
 	int		row;
 }	t_map;
 
-typedef struct	s_player
+typedef struct s_player
 {
 	int	player_x;
 	int	player_y;
 	int	player_moves;
 }	t_player;
 
-typedef struct	s_coin
+typedef struct s_coin
 {
 	int	coin_total;
 	int	coin_taken;
 }	t_coin;
 
-typedef struct	s_sprite
+typedef struct s_sprite
 {
 	void	*wall;
 	void	*ground;
@@ -67,7 +67,7 @@ typedef struct	s_sprite
 	int		img_height;
 }	t_sprite;
 
-typedef struct	s_module
+typedef struct s_module
 {
 	t_vars		*vars;
 	t_map		*map;
