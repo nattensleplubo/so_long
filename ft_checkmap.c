@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 10:15:16 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/02 23:13:57 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/03 19:21:05 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,8 +168,6 @@ int	ft_checkforbid(char *map, int len)
 	}
 	return (get_next_line(fd), close(fd), 1);
 }
-
-/* ********* Check les P E C ********** */
 
 int    has_p(char *map, int len)
 {
