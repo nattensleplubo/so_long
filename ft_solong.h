@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 16:26:01 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/03 16:14:06 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/03 17:22:23 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,13 @@ typedef struct s_vars
 	void	*mlx;
 	void	*win;
 }	t_vars;
+
+typedef struct s_objects
+{
+	int	p;
+	int	c;
+	int	e;
+}	t_objects;
 
 typedef struct s_map
 {
