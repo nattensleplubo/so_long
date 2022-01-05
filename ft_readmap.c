@@ -6,36 +6,23 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 12:35:07 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/03 18:43:31 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/05 16:19:33 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_solong.h"
 
-void	set_coin(char *map, t_module *module, int len)
+void	set_coin(char *map, t_module *module)
 {
-	int		fd;
-	int		j;
-	char	*line;
-	int		i;
-
-	j = 0;
-	i = 0;
-	module->coin->coin_total = 0;
+	module->coin->coin_total = howmuch_c(map, ft_maplen(map));
 	module->coin->coin_taken = 0;
-	fd = open(map, O_RDONLY);
-	while (i < len)
-	{
-		line = get_next_line(fd);
-		while (line[j])
-		{
-			if (line[j] == 'C')
-				module->coin->coin_total++;
-			j++;
-		}
-		j = (free(line), i++, 0);
-	}
-	get_next_line(fd);
+	module->map->height = ft_maplen(map) * 32;
+}
+
+void	ft_setmap(t_module *module, char *map)
+{
+	module->map->fd = open(map, O_RDONLY);
+	
 }
 
 int	main(void)
@@ -45,6 +32,6 @@ int	main(void)
 	module = malloc(sizeof(t_module) * 1);
 	module->coin = malloc(sizeof(t_coin) * 1);
 
-	set_coin("coucou.ber", module, 5);
+	set_coin("coucou.ber", module);
 	printf("%d %d\n", module->coin->coin_total, module->coin->coin_taken);
 }

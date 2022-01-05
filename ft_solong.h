@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 16:26:01 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/03 18:24:39 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/05 16:12:12 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_objects
 typedef struct s_map
 {
 	char	**map;
+	char	*file;
 	int		fd;
 	int		width;
 	int		height;
