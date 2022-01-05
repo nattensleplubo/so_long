@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 12:35:07 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/05 16:19:33 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/05 16:24:09 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,11 @@ void	set_coin(char *map, t_module *module)
 
 void	ft_setmap(t_module *module, char *map)
 {
+	char	*line;
+
 	module->map->fd = open(map, O_RDONLY);
-	
+	line = get_next_line(module->map->fd);
+	module->map->width = ft_linelen(line) * 32;
 }
 
 int	main(void)
