@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 16:26:01 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/05 16:12:12 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/07 12:51:03 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ typedef struct s_objects
 
 typedef struct s_map
 {
-	char	**map;
+	char	**map; // Done
 	char	*file;
 	int		fd;
-	int		width;
-	int		height;
+	int		width; // Done
+	int		height; // Done
 	int		col;
 	int		row;
 }	t_map;
@@ -98,5 +98,6 @@ int		ft_checksq(char *map, int len);
 int		ft_linelen(char *str);
 int		ft_maplen(char *map);
 int		ft_checkber(char *map);
+void	*ft_calloc(size_t count, size_t size);
 
 #endif
