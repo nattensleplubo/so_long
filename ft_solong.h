@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 16:26:01 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/07 12:51:03 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/07 17:07:34 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <mlx.h>
 
 # define EMPTY "./assets/sprites/empty.xpm"
 # define WALL "./assets/sprites/wall.xpm"
