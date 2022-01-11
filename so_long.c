@@ -6,13 +6,24 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 11:36:53 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/11 11:47:33 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/11 14:13:04 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_solong.h"
 
-int	main (int argc, char **argv)
+int	set_map(t_module *module, char *map)
+{
+	module->map = malloc(1 * sizeof(t_map));
+	module->map->map = NULL;
+	if (module->map == NULL)
+		return (-1);
+	ft_setmap(module, map);
+	module->map->height = ft_maplen(map);
+	return (1);
+}
+
+int	main(int argc, char **argv)
 {
 	t_module	*module;
 
@@ -21,6 +32,12 @@ int	main (int argc, char **argv)
 		module = malloc(1 * sizeof(t_module));
 		if (module == NULL)
 			return (-1);
-		if (ft_mapcheck(argv[1]) == 1)
+		if (ft_mapcheck(argv[1], ft_maplen(argv[1])) == 1
+			&& set_map(module, argv[1]))
+		{
+			start_game(module);
+			//hook(module);
+			mlx_loop(module->vars->mlx);
+		}
 	}
 }

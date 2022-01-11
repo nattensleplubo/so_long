@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 16:26:01 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/07 17:07:34 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/11 14:20:57 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <limits.h>
-# include <mlx.h>
+# include "mlx.h"
 
 # define EMPTY "./assets/sprites/empty.xpm"
 # define WALL "./assets/sprites/wall.xpm"
@@ -100,5 +100,8 @@ int		ft_linelen(char *str);
 int		ft_maplen(char *map);
 int		ft_checkber(char *map);
 void	*ft_calloc(size_t count, size_t size);
+int		start_game(t_module *module);
+void	ft_setmap(t_module *module, char *map);
+int	print_map(t_module *module);
 
 #endif
