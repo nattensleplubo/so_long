@@ -6,7 +6,13 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 14:12:33 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/11 14:12:34 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/11 15:48:11 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_solong.h"
+
+void	hook(t_module *module)
+{
+	mlx
+}
