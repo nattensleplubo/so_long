@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 16:56:17 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/07 17:58:08 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/11 10:41:54 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,7 @@ int	start_game(t_module *module)
 		return (-1);
 	load_sprites(module->vars, module->sprite);
 	module->player->player_moves = 0;
+	if (print_map(module) == 1)
+		return (1);
+	return (0);
 }
