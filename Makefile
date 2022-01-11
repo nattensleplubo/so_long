@@ -1,4 +1,4 @@
-SRCS		= ft_checkmap.c get_next_line.c get_next_line_utils.c ft_printmap.c ft_readmap.c libft.c so_long.c start_game.c
+SRCS		= ft_checkmap.c get_next_line.c get_next_line_utils.c ft_printmap.c ft_readmap.c libft.c so_long.c start_game.c hooks.c
 
 OBJS		= $(SRCS:.c=.o)
 

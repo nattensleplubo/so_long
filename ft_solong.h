@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 16:26:01 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/11 14:39:45 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/11 16:29:04 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,11 @@ int		ft_checkber(char *map);
 void	*ft_calloc(size_t count, size_t size);
 int		start_game(t_module *module);
 void	ft_setmap(t_module *module, char *map);
-int	print_map(t_module *module);
+int		print_map(t_module *module);
+char	*ft_itoa(int n);
+void	hook(t_module *module);
+size_t	ft_strlenz(const char *s);
+char	*ft_strjoin(char *s1, char *s2);
+size_t	ft_strlen(char *str);
 
 #endif

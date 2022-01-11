@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 16:32:21 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/11 15:31:10 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/11 16:07:07 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,3 +53,49 @@ char	*ft_itoa(int n)
 		cpy = ((dest[i--] = (cpy % 10) + '0'), cpy / 10);
 	return (dest);
 }
+
+// size_t	ft_strlenz(const char *s)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	while (s[i])
+// 		i++;
+// 	return (i);
+// }
+
+// int	ft_len(char const *s)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	while (s[i])
+// 		i++;
+// 	return (i);
+// }
+
+// char	*ft_strjoin(char const *s1, char const *s2)
+// {
+// 	char	*dest;
+// 	int		i;
+// 	int		j;
+
+// 	i = 0;
+// 	j = 0;
+// 	dest = malloc(sizeof(char) * ft_strlenz(s1) + ft_strlenz(s2) + 1);
+// 	if (!dest)
+// 		return (NULL);
+// 	while (s1[i])
+// 	{
+// 		dest[i] = s1[i];
+// 		i++;
+// 	}
+// 	while (s2[j])
+// 	{
+// 		dest[i] = s2[j];
+// 		i++;
+// 		j++;
+// 	}
+// 	dest[i] = '\0';
+// 	return (dest);
+// }
