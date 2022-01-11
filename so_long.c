@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 11:36:53 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/11 16:29:49 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/11 21:57:00 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(int argc, char **argv)
 			&& set_map(module, argv[1]))
 		{
 			start_game(module);
-			//hook(module);
+			hook(module);
 			mlx_loop(module->vars->mlx);
 		}
 	}

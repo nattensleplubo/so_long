@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 16:26:01 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/11 16:42:56 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/11 22:13:39 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,5 +121,8 @@ void	hook(t_module *module);
 size_t	ft_strlenz(const char *s);
 char	*ft_strjoin(char *s1, char *s2);
 size_t	ft_strlen(char *str);
+void	move(t_module *module, int x, int y);
+int		close_all(t_module *module);
+void	free_ptr(void **ptr);
 
 #endif
