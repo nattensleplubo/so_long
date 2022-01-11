@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 16:26:01 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/11 16:29:04 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/11 16:42:56 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,19 @@
 # define COIN "./assets/sprites/collectible.xpm"
 # define EXIT "./assets/sprites/exit.xpm"
 # define PLAYER "./assets/sprites/player.xpm"
+
+# define KEY_ESC 65307
+# define KEY_Q 113
+
+# define KEY_W 119
+# define KEY_A 97
+# define KEY_S 115
+# define KEY_D 100
+
+# define KEY_UP 65362
+# define KEY_LEFT 65361
+# define KEY_DOWN 65364
+# define KEY_RIGHT 65363
 
 typedef enum e_bool {TRUE = 1, FALSE = 0}	t_bool;
 
