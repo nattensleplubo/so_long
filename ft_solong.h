@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 16:26:01 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/11 14:20:57 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/11 14:39:45 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 # define EMPTY "./assets/sprites/empty.xpm"
 # define WALL "./assets/sprites/wall.xpm"
-# define COIN "./assets/sprites/coin.xpm"
+# define COIN "./assets/sprites/collectible.xpm"
 # define EXIT "./assets/sprites/exit.xpm"
 # define PLAYER "./assets/sprites/player.xpm"
 
