@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 14:12:33 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/12 10:28:31 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/12 11:33:04 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	free_ptr(void **ptr)
 static int	key_hook(int keycode, t_module *module)
 {
 	if (keycode == 113 || keycode == KEY_ESC)
-	 	close_all(module);
+		close_all(module);
 	else if (module->end_game == TRUE)
 		return (0);
 	else if (keycode == KEY_D || keycode == KEY_RIGHT)
@@ -56,6 +56,5 @@ void	hook(t_module *module)
 {
 	mlx_key_hook(module->vars->win, &key_hook, module);
 	mlx_loop_hook(module->vars->mlx, &print_steps, module);
- 	mlx_hook(module->vars->win, 17, 0, &close_all, module);
-// 	mlx_hook(module->vars->win, 9, 1L << 21, &resume_game, module);
+	mlx_hook(module->vars->win, 17, 0, &close_all, module);
 }

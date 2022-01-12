@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 21:45:56 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/12 10:47:28 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/12 11:33:27 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,4 @@ void	ft_setmap(t_module *module, char *map)
 	}
 	module->map->width = ft_linelen(module->map->map[0]);
 	get_next_line(fd);
-	//module->coin->coin_total = howmuch_c(map, ft_maplen(map));
 }

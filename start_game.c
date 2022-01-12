@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 16:56:17 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/12 10:49:45 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/12 11:29:28 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	load_sprites(t_vars *vars, t_sprite *sprite)
 	sprite->ground = img_init(EMPTY, vars->mlx, sprite);
 	sprite->coin = img_init(COIN, vars->mlx, sprite);
 	sprite->exit = img_init(EXIT, vars->mlx, sprite);
-	sprite->player = img_init(PLAYER, vars->mlx, sprite);	
+	sprite->player = img_init(PLAYER, vars->mlx, sprite);
 }
 
 int	start_game(t_module *module, char *map)

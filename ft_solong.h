@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 16:26:01 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/12 10:50:25 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/12 11:38:48 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,11 @@ typedef struct s_objects
 
 typedef struct s_map
 {
-	char	**map; // Done
+	char	**map;
 	char	*file;
 	int		fd;
-	int		width; // Done
-	int		height; // Done
+	int		width;
+	int		height;
 	int		col;
 	int		row;
 }	t_map;
@@ -76,7 +76,7 @@ typedef struct s_coin
 {
 	int	coin_total;
 	int	coin_taken;
-}	t_coin; //DONE
+}	t_coin;
 
 typedef struct s_sprite
 {
@@ -125,5 +125,6 @@ void	move(t_module *module, int x, int y);
 int		close_all(t_module *module);
 void	free_ptr(void **ptr);
 char	*ft_strjoinz(char const *s1, char const *s2);
+void	free_gnl(char *line, int fd);
 
 #endif

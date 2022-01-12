@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 11:36:53 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/12 10:59:05 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/12 11:29:49 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,6 @@ int	set_map(t_module *module, char *map)
 		return (-1);
 	ft_setmap(module, map);
 	module->map->height = ft_maplen(map);
-	// module->coin = malloc(sizeof(t_coin));
-	// if (module->coin == NULL)
-	// 	return (-1);
-	//module->coin->coin_total = 0;
-	//module->coin->coin_taken = 0;
 	return (1);
 }
 

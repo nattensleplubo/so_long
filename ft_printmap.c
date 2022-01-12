@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 13:27:01 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/12 10:46:00 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/12 11:26:04 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	put_img(t_module *module, void *sprite)
 
 void	print_coin(t_module *module)
 {
-	// module->coin->coin_total = module->coin->coin_total + 1;
 	put_img(module, module->sprite->coin);
 }
 
@@ -51,7 +50,6 @@ int	choose_sprite(char *line, t_module *module)
 int	print_map(t_module *module)
 {
 	module->map->row = 0;
-	//module->coin->coin_taken = 0;
 	while (module->map->row < module->map->height)
 	{
 		module->map->col = 0;
@@ -62,5 +60,5 @@ int	print_map(t_module *module)
 		}
 		module->map->row++;
 	}
-	return(0);
+	return (0);
 }

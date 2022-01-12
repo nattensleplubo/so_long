@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 21:58:07 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/12 10:43:00 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/12 11:30:26 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,13 @@ void	move(t_module *module, int x, int y)
 	{
 		module->player->player_moves++;
 		module->map->map[y][x] = 'P';
-		module->map->map[module->player->player_y][module->player->player_x] = '0';
+		module->map->map[module->player->player_y]
+		[module->player->player_x] = '0';
 		print_map(module);
 	}
 	else if (res == 2)
 	{
 		printf("\033[32mYOU WIN!\n\033[0");
+		module->end_game = TRUE;
 	}
 }
