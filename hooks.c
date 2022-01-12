@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 14:12:33 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/11 22:14:51 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/12 10:28:31 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ int	print_steps(t_module *module)
 	char	*itoa;
 
 	itoa = ft_itoa(module->player->player_moves);
-	temp = ft_strjoin("STEPS : ", itoa);
+	temp = ft_strjoinz("STEPS : ", itoa);
+	mlx_string_put(module->vars->mlx, module->vars->win, 11, 11,
+		0x00FFFFFF, temp);
 	free_ptr((void **)&temp);
 	free_ptr((void **)&itoa);
 	return (0);
@@ -53,7 +55,7 @@ int	print_steps(t_module *module)
 void	hook(t_module *module)
 {
 	mlx_key_hook(module->vars->win, &key_hook, module);
-// 	mlx_loop_hook(module->vars->mlx, &print_steps, module);
-// 	mlx_hook(module->vars->win, 17, 0, &close_all, module);
+	mlx_loop_hook(module->vars->mlx, &print_steps, module);
+ 	mlx_hook(module->vars->win, 17, 0, &close_all, module);
 // 	mlx_hook(module->vars->win, 9, 1L << 21, &resume_game, module);
 }

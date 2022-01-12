@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 11:36:53 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/11 21:57:00 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/12 10:59:05 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int argc, char **argv)
 {
 	t_module	*module;
 
-	if (argc == 2)
+	if (argc == 2 && ft_mapcheck(argv[1], ft_maplen(argv[1])) == 1)
 	{
 		module = malloc(1 * sizeof(t_module));
 		if (module == NULL)
@@ -40,7 +40,7 @@ int	main(int argc, char **argv)
 		if (ft_mapcheck(argv[1], ft_maplen(argv[1])) == 1
 			&& set_map(module, argv[1]))
 		{
-			start_game(module);
+			start_game(module, argv[1]);
 			hook(module);
 			mlx_loop(module->vars->mlx);
 		}

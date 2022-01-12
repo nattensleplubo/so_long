@@ -6,7 +6,7 @@
 /*   By: ngobert <ngobert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 16:56:17 by ngobert           #+#    #+#             */
-/*   Updated: 2022/01/11 10:41:54 by ngobert          ###   ########.fr       */
+/*   Updated: 2022/01/12 10:49:45 by ngobert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	load_sprites(t_vars *vars, t_sprite *sprite)
 	sprite->player = img_init(PLAYER, vars->mlx, sprite);	
 }
 
-int	start_game(t_module *module)
+int	start_game(t_module *module, char *map)
 {
 	module->vars = malloc(1 * sizeof(t_vars));
 	module->player = malloc(sizeof(t_player));
@@ -40,6 +40,7 @@ int	start_game(t_module *module)
 	if (!module->sprite || !module->vars || !module->player || !module->coin)
 		return (-1);
 	module->vars->mlx = mlx_init();
+	module->coin->coin_total = howmuch_c(map, ft_maplen(map));
 	if (module->vars->mlx == NULL)
 		return (-1);
 	module->vars->win = mlx_new_window(module->vars->mlx,
